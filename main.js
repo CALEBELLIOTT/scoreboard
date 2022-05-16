@@ -14,6 +14,7 @@ function incrementScore(team, points) {
     scores.away += points
     console.log("Away score is " + scores.away);
   }
+  saveScore()
   drawScores()
 }
 
@@ -26,11 +27,19 @@ function drawScores() {
 function resetScore() {
   scores.home = 0
   scores.away = 0
+  saveScore()
   drawScores()
 }
 
+function saveScore() {
+  window.localStorage.setItem("scores", JSON.stringify(scores))
+}
 
+function loadScores() {
+  scores = JSON.parse(window.localStorage.getItem("scores"))
+  console.log(scores);
+}
 
-
+loadScores()
 drawScores()
 
