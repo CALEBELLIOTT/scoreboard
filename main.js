@@ -22,4 +22,15 @@ function drawScores() {
   document.getElementById("away-score").innerHTML = "  " + scores.away
 }
 
+
+function resetScore() {
+  scores.home = 0
+  scores.away = 0
+  drawScores()
+}
+
+
+
+
 drawScores()
+
